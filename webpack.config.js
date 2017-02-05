@@ -1,44 +1,53 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-// const cssExtract = new ExtractTextPlugin('main.css');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+
+  target: 'web',
   entry: './src/app.js',
   output: {
-    path: '../server/public',
-    filename: 'main.js'
-  },
+    path: '../server-rusty-empire/public/',
+    filename: 'build.js'
+  }, 
+
   devtool: 'source-map',
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new ExtractTextPlugin('main.css')
+    }), 
+    // new ExtractTextPlugin('styles.scss')
   ],
+
   module: {
     preLoaders: [{
-      test: /\.js$/,
+      test: /\.js$/, // all files ending in .js
       loader: 'eslint-loader',
       exclude: /node_modules/
     }],
     loaders: [{
       test: /\.js$/,
-      exclude: /node_modules/,
+      exclude:/node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015']
-      }
-    }, {
-      test:/\.scss/,
-      loader: /*cssExtract.extract( 
-        'style-loader',*/
-        'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
-      // )
-    }, {
-      test: /\.html$/,
+        cacheDirectory: true,
+        // plugins: ['transform-runtime']
+      } 
+
+    },
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+    }, 
+    {
+      test: /\.scss$/,
+      loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'
+    }, 
+    {
+      test: /\.html/,
       loader: 'html-loader'
-    }]
+    }
+    ]
   },
   sassLoader: {
     includePaths: ['./src/scss/partials']
