@@ -8,17 +8,19 @@ h1 {
   font-size: 2.5em;
 }
 
-ul {
+nav {
   margin: 10px auto;
   text-align: center;
   padding: 0;
 }
 
-li {
+a {
   display: inline-block;
   padding: 2px;
   border: 2px solid black;
   font-size: 1.8em;
+  text-decoration: none;
+  color: black;
 }
 
 section {
