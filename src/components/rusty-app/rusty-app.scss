@@ -1,0 +1,35 @@
+header {
+  border: 3px solid black;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+nav {
+  margin: 10px auto;
+  text-align: center;
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  padding: 2px;
+  border: 2px solid black;
+  font-size: 1.8em;
+  text-decoration: none;
+  color: black;
+}
+
+section {
+  display: inline-block;
+  height: 160px;
+  width: 48.7%;
+}
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+}
